@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 :root{
@@ -683,14 +682,16 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   .ft{flex-direction:column;}
   .radio-group{flex-direction:column;}
 }
-
 </style>
 </head>
 <body>
+
+<!-- MOBILE MENU -->
 <div class="mob" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">✕ Закрити</button>
   <a href="#hero" onclick="closeMob()">Головна</a>
   <a href="#about" onclick="closeMob()">Про студію</a>
+  <a href="meta-ads.html" onclick="closeMob()">Meta Ads</a>
   <a href="#cases" onclick="closeMob()">Приклади робіт</a>
   <a href="#process" onclick="closeMob()">Як ми працюємо</a>
   <a href="work.html" onclick="closeMob()">Робота з нами</a>
@@ -705,7 +706,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   </a>
   <nav>
     <a href="#about">Про студію</a>
-    <a href="#cases">Кейси</a>
+    <a href="meta-ads.html">Meta Ads</a>
+    <a href="#cases">Приклади робіт</a>
     <a href="#process">Як ми працюємо</a>
     <a href="work.html">Робота з нами</a>
     <a href="work.html#form-section" class="btn-nav">Залишити заявку</a>
@@ -731,6 +733,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
     <div class="hero-stmt">
       <span><strong>Сайт</strong> — пояснює і продає.</span>
       <span><strong>Контент</strong> — привертає увагу.</span>
+      <span><strong>Meta Ads</strong> — приводить клієнтів.</span>
       <span><strong>CRM-бот</strong> — приймає заявки.</span>
     </div>
     <div class="hero-actions">
@@ -775,7 +778,11 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
         <h3>CRM + Telegram-бот</h3>
         <p>Бот приймає заявки замість вас: збирає дані, надсилає адміністратору. Ціна — за запитом.</p>
       </div>
-      <div class="pillar" style="border-top:2px solid var(--green);">
+      <div class="pillar">
+        <h3 style="color:var(--green);">Meta Ads</h3>
+        <p>Реклама в Instagram і Facebook. Налаштовуємо під ваш бізнес — від аналізу до запуску. <a href="meta-ads.html" style="color:var(--green);text-decoration:underline;font-size:.8rem;">Детальніше →</a></p>
+      </div>
+      <div class="pillar" style="grid-column:span 2;border-top:2px solid var(--green);">
         <h3 style="color:var(--green);">Аналіз — безкоштовно</h3>
         <p>Перед будь-якою роботою дивимося на ваш бізнес і розповідаємо, що реально потрібно.</p>
       </div>
@@ -1040,6 +1047,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       <div class="fnc">
         <a href="#hero">Головна</a>
         <a href="#about">Про студію</a>
+        <a href="meta-ads.html">Meta Ads</a>
         <a href="#cases">Кейси</a>
         <a href="work.html">Робота з нами</a>
       </div>
@@ -1047,7 +1055,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
         <a href="work.html#process">Процес</a>
         <a href="work.html#pricing">Вартість</a>
         <a href="work.html#form-section">Заявка</a>
-        <a href="work.html#form-section">Заявка</a>
+        <a href="work.html#contacts">Контакти</a>
       </div>
     </div>
     <div class="fsoc">
@@ -1124,6 +1132,5 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   resetTimer();
 })();
 </script>
-
 </body>
 </html>
