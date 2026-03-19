@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
 <title>OptiDigital Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@ html{scroll-behavior:smooth;}
   --f:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(0.22,1,0.36,1);
 }
-body{background:var(--bg);color:var(--white);font-family:var(--f);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--white);font-family:var(--f);font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%;touch-action:manipulation;}
 ::selection{background:var(--green);color:#000;}
 ::-webkit-scrollbar{width:2px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
@@ -77,7 +77,8 @@ nav a:hover{color:var(--white);}
 /* ── MOBILE MENU ── */
 .mob{
   display:none;position:fixed;inset:0;background:var(--bg2);z-index:499;
-  flex-direction:column;justify-content:center;padding:48px 40px;
+  flex-direction:column;justify-content:center;padding:48px 24px;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
 }
 .mob.open{display:flex;}
 .mob a{
@@ -657,11 +658,11 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 /* ── RESPONSIVE ── */
 @media(max-width:1100px){
   .sgrid{grid-template-columns:repeat(2,1fr);}
-  .audit-wrap,.about-grid,.form-wrap,.cont-wrap{grid-template-columns:1fr;gap:48px;}
+  .audit-wrap,.about-grid,.form-wrap,.cont-wrap,.price-wrap{grid-template-columns:1fr;gap:48px;}
   .pc-body{grid-template-columns:1fr!important;}
 }
 @media(max-width:900px){
-  section{padding:80px 28px;}
+  section{padding:72px 28px;}
   header,#hdr{padding:0 28px;}
   .pgrid{grid-template-columns:repeat(2,1fr);}
   .angrid{grid-template-columns:repeat(2,1fr);}
@@ -669,18 +670,114 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   .cases-social{grid-template-columns:1fr;}
   #hero{padding:0 28px 72px;}
   .an-ft{flex-direction:column;align-items:flex-start;}
+  .pricing-grid .pc-body{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
-  #hdr{padding:0 20px;}
+  /* ── Header ── */
+  #hdr{padding:0 16px;height:56px;}
   nav,.btn-nav{display:none;}
   .burger{display:flex;}
-  section{padding:68px 20px;}
-  #hero{padding:0 20px 60px;}
+
+  /* ── Sections ── */
+  section{padding:56px 16px;}
+  #hero{padding:0 16px 56px;min-height:90vh;}
+  #cta{padding:72px 16px!important;}
+
+  /* ── Hero ── */
+  .hero-eyebrow{font-size:10px;margin-bottom:16px;}
+  .hero-h1{font-size:clamp(2.4rem,10vw,4.5rem);letter-spacing:-0.04em;line-height:1.0;}
+  .hero-tagline{font-size:.9rem;line-height:1.7;}
+  .hero-stmt{font-size:.82rem;line-height:1.8;}
+  .hero-stmt span{display:block;margin-bottom:2px;}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:10px;width:100%;}
+  .hero-actions .btn-main,.hero-actions .btn-ghost,.hero-actions .btn-ghost-purple{
+    width:100%;justify-content:center;text-align:center;
+  }
+
+  /* ── About pillars — fix span 2 on mobile ── */
+  .about-pillars{grid-template-columns:1fr!important;}
+  .pillar[style*="grid-column:span 2"]{grid-column:span 1!important;}
+
+  /* ── Grids ── */
   .pgrid,.angrid,.sgrid{grid-template-columns:1fr;}
   .cont-cards,.about-pillars,.pflow{grid-template-columns:1fr;}
-  .hero-actions,.price-btns,.cta-btns,.more-btns{flex-direction:column;align-items:flex-start;}
-  .ft{flex-direction:column;}
+  .messenger-grid{grid-template-columns:1fr 1fr;}
+
+  /* ── Buttons ── */
+  .hero-actions,.price-btns,.cta-btns,.more-btns,.an-ft div{
+    flex-direction:column;align-items:stretch;gap:10px;
+  }
+  .btn-main,.btn-ghost,.btn-ghost-purple{
+    width:100%;justify-content:center;text-align:center;
+  }
+  .cta-btns .btn-main{width:auto;min-width:200px;}
+
+  /* ── Process step footer (inline flex) ── */
+  .process-cta-row{flex-direction:column!important;align-items:flex-start!important;gap:20px!important;}
+  .process-cta-row p{font-size:1.05rem!important;}
+
+  /* ── Bridge block padding ── */
+  .bridge-block{padding:36px 16px!important;}
+
+  /* ── Cases social cards ── */
+  .cases-social{grid-template-columns:1fr;}
+  .social-card{padding:20px 16px;}
+
+  /* ── Footer ── */
+  .ft{flex-direction:column;gap:28px;}
+  .fn{flex-direction:column;gap:20px;}
+  .fbot{flex-direction:column;align-items:flex-start;gap:8px;}
+  .fbot span{font-size:.72rem;}
+
+  /* ── Form ── */
   .radio-group{flex-direction:column;}
+  .field input,.field select,.field textarea{font-size:16px;} /* prevent iOS zoom */
+
+  /* ── Carousel ── */
+  .carousel-slide{aspect-ratio:4/3!important;}
+
+  /* ── s-sub ── */
+  .s-sub{font-size:.88rem;max-width:100%;}
+
+  /* ── Tag ── */
+  .tag{font-size:10px;}
+
+  /* ── H2 ── */
+  h2{font-size:clamp(1.8rem,7vw,2.8rem)!important;}
+}
+@media(max-width:380px){
+  .hero-h1{font-size:2.1rem;}
+  section{padding:48px 14px;}
+  #hero{padding:0 14px 48px;}
+  #hdr{padding:0 14px;}
+}
+
+/* ── ANDROID / MOBILE EXTRA FIXES ── */
+/* Prevent horizontal scroll from any element */
+*{max-width:100%;}
+img,video,svg{max-width:100%;height:auto;}
+
+/* Tap targets — minimum 44px for Android */
+a,button,.btn-main,.btn-ghost,.btn-ghost-purple,.btn-nav,.btn-submit{
+  -webkit-tap-highlight-color:transparent;
+  min-height:44px;
+}
+.btn-submit{min-height:50px;}
+
+/* Smooth scrolling on iOS/Android */
+html{-webkit-overflow-scrolling:touch;}
+
+/* Better tap feedback */
+.pillar,.pc,.an,.ps,.social-card,.svc,.fmt,.pr-item,.pr-free{
+  -webkit-tap-highlight-color:rgba(61,214,56,0.08);
+}
+
+/* Input zoom prevention — 16px minimum */
+input,select,textarea{font-size:max(16px,1em);}
+
+/* Fix hero min-height for Android Chrome with URL bar */
+@supports(min-height:100dvh){
+  #hero{min-height:100dvh;}
 }
 </style>
 </head>
@@ -829,9 +926,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 
 
 <!-- ── BRIDGE ── -->
-<div style="background:var(--bg2);padding:48px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+<div class="bridge-block" style="background:var(--bg2);padding:48px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div style="max-width:700px;">
-    <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:700;letter-spacing:-0.03em;line-height:1.45;color:var(--muted);">
+    <p style="font-size:clamp(1rem,4vw,1.4rem);font-weight:700;letter-spacing:-0.03em;line-height:1.45;color:var(--muted);">
       Ось як це вирішується —<br>
       <strong style="color:var(--white);">системою, де кожен елемент пов'язаний з наступним.</strong>
     </p>
@@ -947,7 +1044,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       <p>Поетапно будуємо систему — реклама, сайт, заявки, CRM. Без хаосу та втрати клієнтів.</p>
     </div>
   </div>
-  <div style="padding-top:48px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+  <div class="process-cta-row" style="padding-top:48px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
     <p style="font-size:clamp(1rem,2vw,1.45rem);font-weight:700;letter-spacing:-0.03em;color:var(--muted);line-height:1.3;">Хочете дізнатися детальніше<br><em style="color:var(--white);font-style:italic;">про кожен крок роботи?</em></p>
     <a href="work.html" class="btn-ghost">Детальніше про процес →</a>
   </div>
