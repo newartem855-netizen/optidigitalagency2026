@@ -684,136 +684,6 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   .radio-group{flex-direction:column;}
 }
 
-.pflow-4{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);border-left:1px solid var(--line);
-  margin-top:56px;
-}
-
-.pflow-4 .ps{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:44px 32px;transition:background .25s;
-}
-
-.pflow-4 .ps:hover{background:var(--bg3);}
-.pflow-4 .ps:hover .ps-big{color:rgba(61,214,56,.07);}
-
-.free-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:#000;background:var(--green);
-  padding:4px 10px;border-radius:3px;margin-top:10px;
-}
-
-.services-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);border-left:1px solid var(--line);
-  margin-top:0;
-}
-
-.svc{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:40px 32px;position:relative;overflow:hidden;transition:background .25s;
-  display:flex;flex-direction:column;gap:16px;
-}
-
-.svc:hover{background:var(--bg3);}
-.svc::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,var(--purple),var(--green));
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease);
-}
-
-.svc:hover::before{transform:scaleX(1);}
-.svc-num{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted2);}
-
-.svc-price{
-  font-size:.82rem;font-weight:600;letter-spacing:.06em;
-  color:var(--green);border-top:1px solid var(--line);
-  padding-top:14px;margin-top:auto;
-}
-
-.format-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  border-top:1px solid var(--line);border-left:1px solid var(--line);
-  margin-top:40px;
-}
-
-.fmt{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:40px 36px;transition:background .25s;position:relative;overflow:hidden;
-}
-
-.fmt:hover{background:var(--bg3);}
-.fmt::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--green);transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease);
-}
-
-.fmt:hover::after{transform:scaleX(1);}
-.fmt-label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;}
-
-.fmt h3{font-size:1.2rem;font-weight:800;letter-spacing:-0.03em;color:var(--white);margin-bottom:12px;}
-.fmt p{font-size:.86rem;color:var(--muted);line-height:1.75;}
-
-.pricing-simple{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);border-left:1px solid var(--line);
-  margin-top:40px;
-}
-
-.pr-item{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:32px 28px;transition:background .25s;
-}
-
-.pr-item:hover{background:var(--bg3);}
-.pr-name{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;}
-
-.pr-val{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-0.04em;color:var(--white);line-height:1;margin-bottom:6px;}
-.pr-note{font-size:.78rem;color:var(--muted2);font-style:italic;}
-
-.pr-free{
-  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-  padding:32px 28px;background:var(--bg3);transition:background .25s;
-}
-
-.pr-free-label{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;}
-.pr-free-val{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-0.04em;color:var(--green);line-height:1;margin-bottom:6px;}
-
-.pr-free-note{font-size:.78rem;color:var(--muted);}
-
-
-  .services-grid{grid-template-columns:1fr 1fr;}
-  .form-wrap{grid-template-columns:1fr;gap:48px;}
-
-  .pflow-4{grid-template-columns:1fr 1fr;}
-  .format-grid{grid-template-columns:1fr;}
-
-  .pricing-simple{grid-template-columns:1fr 1fr;}
-  #hero-work{padding:0 28px 72px;}
-
-  .pflow-4{grid-template-columns:1fr;}
-  .services-grid{grid-template-columns:1fr;}
-
-  .pricing-simple{grid-template-columns:1fr;}
-  .ft{flex-direction:column;}
-
-@media(max-width:640px){
-  #hdr{padding:0 20px;}
-  nav,.btn-nav{display:none;}
-  .burger{display:flex;}
-  section{padding:68px 20px;}
-  #hero{padding:0 20px 60px;}
-  .pgrid,.angrid,.sgrid{grid-template-columns:1fr;}
-  .cont-cards,.about-pillars,.pflow{grid-template-columns:1fr;}
-  .hero-actions,.price-btns,.cta-btns,.more-btns{flex-direction:column;align-items:flex-start;}
-  .ft{flex-direction:column;}
-  .radio-group{flex-direction:column;}
-}
-
 
 /* ── WORK PAGE EXTRA ── */
 #hero-work{
@@ -902,6 +772,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 .pr-free-label{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;}
 .pr-free-val{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;letter-spacing:-0.04em;color:var(--green);line-height:1;margin-bottom:6px;}
 .pr-free-note{font-size:.78rem;color:var(--muted);}
+
 @media(max-width:1100px){
   .services-grid{grid-template-columns:1fr 1fr;}
   .form-wrap{grid-template-columns:1fr;gap:48px;}
@@ -930,9 +801,12 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 </style>
 </head>
 <body>
+
+<!-- MOBILE MENU -->
 <div class="mob" id="mobMenu">
   <button class="mob-close" onclick="closeMob()">✕ Закрити</button>
   <a href="index.html" onclick="closeMob()">Головна</a>
+  <a href="meta-ads.html" onclick="closeMob()">Meta Ads</a>
   <a href="#process" onclick="closeMob()">Як ми працюємо</a>
   <a href="#services" onclick="closeMob()">Що реалізуємо</a>
   <a href="#format" onclick="closeMob()">Формат роботи</a>
@@ -948,6 +822,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   </a>
   <nav>
     <a href="index.html">Головна</a>
+    <a href="meta-ads.html">Meta Ads</a>
     <a href="#process">Як ми працюємо</a>
     <a href="#services">Що реалізуємо</a>
     <a href="#pricing">Вартість</a>
@@ -1040,6 +915,12 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       <p>Автоматизуємо прийом заявок, щоб клієнт не губився, а адміністратор отримував уже зібрану інформацію в зручному форматі.</p>
       <div class="svc-price">За запитом</div>
     </div>
+    <div class="svc" style="border-left:2px solid var(--green);">
+      <div class="svc-num">04</div>
+      <h3>Meta Ads</h3>
+      <p>Реклама в Instagram і Facebook — від аналізу аудиторії до запуску кампаній. Підключаємо до сайту, директа або форми заявок.</p>
+      <div class="svc-price"><a href="meta-ads.html" style="color:var(--green);">Детальніше →</a></div>
+    </div>
   </div>
 </section>
 
@@ -1091,6 +972,11 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       <div class="pr-name">CRM + Telegram-бот</div>
       <div class="pr-val">За запитом</div>
       <div class="pr-note">Індивідуально під задачу бізнесу</div>
+    </div>
+    <div class="pr-item" style="grid-column:span 1;">
+      <div class="pr-name">Meta Ads</div>
+      <div class="pr-val" style="font-size:1.1rem;">За задачею</div>
+      <div class="pr-note">Вартість залежить від задачі та бюджету</div>
     </div>
   </div>
 </section>
@@ -1333,6 +1219,5 @@ document.querySelectorAll('.radio-opt').forEach(opt=>{
   });
 });
 </script>
-
 </body>
 </html>
