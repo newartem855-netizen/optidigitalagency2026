@@ -205,6 +205,37 @@ h2{
 }
 .btn-ghost-purple:hover{border-color:var(--purple);color:var(--white);background:rgba(139,63,200,.12);}
 
+/* ── AI MANAGER BUTTON ── */
+.btn-ai{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.02em;
+  color:#000 !important;
+  padding:9px 20px;border-radius:4px;
+  background:linear-gradient(100deg,#3dd638 0%,#22d3ee 22%,#8b3fc8 50%,#e040a0 72%,#22d3ee 88%,#3dd638 100%);
+  background-size:300% 100%;
+  animation:ai-shimmer 6s linear infinite;
+  box-shadow:0 0 18px rgba(34,211,238,.3),0 0 36px rgba(139,63,200,.15);
+  transition:box-shadow .3s,transform .25s var(--ease),filter .25s;
+  text-decoration:none !important;
+  position:relative;overflow:hidden;white-space:nowrap;
+  cursor:pointer;border:none;
+}
+.btn-ai::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),transparent 50%);
+  pointer-events:none;
+}
+.btn-ai:hover{
+  filter:brightness(1.1);
+  box-shadow:0 0 28px rgba(34,211,238,.55),0 0 56px rgba(139,63,200,.3);
+  transform:translateY(-2px);
+  color:#000 !important;
+}
+@keyframes ai-shimmer{
+  0%{background-position:200% center;}
+  100%{background-position:-100% center;}
+}
+
 .hero-scroll{
   position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:8px;
@@ -601,14 +632,18 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
 .fnc{display:flex;flex-direction:column;gap:10px;}
 .fnc a{font-size:.77rem;color:var(--muted2);text-decoration:none;transition:color .2s;}
 .fnc a:hover{color:var(--white);}
-.fsoc{display:flex;gap:8px;}
+.fsoc{display:flex;gap:8px;align-items:center;}
 .fsc{
-  width:32px;height:32px;border:1px solid var(--line);
+  width:32px;height:32px;border:none;
   display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;color:var(--muted2);
   border-radius:4px;text-decoration:none;transition:all .2s;
+  color:#fff;
 }
-.fsc:hover{border-color:var(--green);color:var(--green);}
+.fsc svg{width:17px;height:17px;}
+.fsc:hover{transform:translateY(-2px);opacity:.85;}
+.fsc-tg{background:#229ED9;}
+.fsc-ig{background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);}
+.fsc-wa{background:#25D366;}
 .fbot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap;gap:12px;}
 .fbot span{font-size:.72rem;color:var(--muted2);}
 .fbot em{font-style:italic;}
@@ -682,6 +717,21 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   .ft{flex-direction:column;}
   .radio-group{flex-direction:column;}
 }
+
+/* ── HEADER SOCIAL ICONS ── */
+.nav-soc-sep{width:1px;height:16px;background:var(--line2);margin:0 4px;}
+.hdr-soc{
+  width:32px;height:32px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:transform .2s,opacity .2s;
+  text-decoration:none;
+}
+.hdr-soc svg{width:17px;height:17px;}
+.hdr-soc:hover{transform:translateY(-2px);opacity:.85;}
+.hdr-soc-tg{background:#229ED9;color:#fff;}
+.hdr-soc-ig{background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);color:#fff;}
+.hdr-soc-wa{background:#25D366;color:#fff;}
+@media(max-width:640px){.hdr-socials{display:none;}}
 </style>
 </head>
 <body>
@@ -695,6 +745,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   <a href="#cases" onclick="closeMob()">Кейси</a>
   <a href="work.html" onclick="closeMob()">Процес</a>
   <a href="work.html#form-section" onclick="closeMob()">Безкоштовний аналіз</a>
+  <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" onclick="closeMob();return true;" style="margin-top:16px;text-align:center;justify-content:center;font-size:clamp(1.8rem,6vw,3rem);font-weight:800;letter-spacing:-0.04em;padding:18px 0;border-radius:0;background:linear-gradient(135deg,#3dd638 0%,#22d3ee 42%,#8b3fc8 75%,#e040a0 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;box-shadow:none;border-bottom:1px solid rgba(255,255,255,0.07);">✦ Протестувати AI-менеджера</a>
 </div>
 
 <!-- HEADER -->
@@ -708,8 +759,15 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
     <a href="#ai-assistant">AI-асистент</a>
     <a href="#cases">Кейси</a>
     <a href="work.html">Процес</a>
+    <span class="nav-soc-sep"></span>
+    <a href="https://t.me/TijGabumG" class="hdr-soc hdr-soc-tg" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></a>
+    <a href="https://www.instagram.com/optidigital_agency/" class="hdr-soc hdr-soc-ig" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+    <a href="https://wa.me/380980421619" class="hdr-soc hdr-soc-wa" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <span class="nav-soc-sep"></span>
+    <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" style="font-size:13px;font-weight:600;padding:9px 20px;border-radius:4px;">✦ AI-менеджер</a>
     <a href="work.html#form-section" class="btn-nav">Безкоштовний аналіз →</a>
   </nav>
+
   <button class="burger" onclick="openMob()"><span></span><span></span><span></span></button>
 </header>
 
@@ -738,6 +796,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
     </div>
     <div class="hero-actions">
       <a href="work.html#form-section" class="btn-main">Отримати безкоштовний аналіз →</a>
+      <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" style="padding:14px 28px;">✦ Поговорити з AI-менеджером</a>
       <a href="#problems" class="btn-ghost">Як це працює</a>
     </div>
   </div>
@@ -972,6 +1031,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
         Запитав "чим ви відрізняєтесь" → AI відповів і направив до запису.
       </p>
       <div class="audit-stamp r" style="margin-bottom:28px;">Відповідає · Записує · Нагадує · Веде базу · Телефонує голосом</div>
+      <div style="margin-bottom:28px;">
+        <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" style="padding:13px 26px;font-size:13px;">✦ Спробуйте AI-менеджера прямо зараз — безкоштовно</a>
+      </div>
       <p style="font-size:.93rem;color:var(--muted);line-height:1.85;">
         Ви більше не прив'язані до телефону.<br>
         Не перевіряєте директ щогодини.<br>
@@ -1045,6 +1107,12 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
   </div>
   <div class="p-stmt r" style="margin-top:52px;">
     <p>Саме тут вирішується,<br>чи стане клієнт записом —<br><strong>чи піде до конкурента.</strong></p>
+  </div>
+  <div class="r" style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+    <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" style="font-size:13px;padding:14px 28px;">
+      ✦ Протестувати безкоштовно — поговоріть з AI прямо зараз
+    </a>
+    <p style="font-size:.82rem;color:var(--muted2);max-width:300px;line-height:1.6;">Ваш майбутній AI-менеджер — у дії. Без реєстрації.</p>
   </div>
 </section>
 
@@ -1190,11 +1258,8 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       <div class="carousel-slide" style="min-width:100%;aspect-ratio:16/7;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);">
         <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);">Скріншот сайту 2</span>
       </div>
-      <div class="carousel-slide" style="min-width:100%;aspect-ratio:16/7;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--line);">
-        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);">Instagram-профіль</span>
-      </div>
       <div class="carousel-slide" style="min-width:100%;aspect-ratio:16/7;background:var(--bg3);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);">Telegram-бот</span>
+        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);">Instagram-профіль</span>
       </div>
     </div>
     <!-- Controls -->
@@ -1254,6 +1319,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
     <p class="r d1" style="margin-top:-24px;"><em>Без зобов'язань. Без продажного тиску.</em></p>
     <div class="cta-btns r d2">
       <a href="work.html#form-section" class="btn-main">Отримати безкоштовний аналіз →</a>
+      <a href="https://newartem855-netizen.github.io/optidigital-frontend/" class="btn-ai" style="padding:14px 28px;">✦ Поговорити з AI-менеджером</a>
     </div>
     <p class="r d2" style="font-size:.82rem;color:var(--muted2);margin-top:16px;">Або напишіть напряму: <a href="https://t.me/TijGabumg" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">Telegram</a> · <a href="https://www.instagram.com/optidigital2026/" style="color:var(--muted);text-decoration:underline;text-underline-offset:3px;">Instagram</a> — відповімо протягом години</p>
   </div>
@@ -1287,8 +1353,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:48px 40px 2
       </div>
     </div>
     <div class="fsoc">
-      <a href="https://t.me/+VSUykAZSD7cyYTMy" class="fsc">TG</a>
-      <a href="https://www.instagram.com/optidigital2026/" class="fsc">IG</a>
+      <a href="https://t.me/+VSUykAZSD7cyYTMy" class="fsc fsc-tg" title="Telegram" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></a>
+      <a href="https://www.instagram.com/optidigital2026/" class="fsc fsc-ig" title="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://wa.me/380980421619" class="fsc fsc-wa" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </div>
   </div>
   <div class="fbot">
